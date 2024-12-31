@@ -11,7 +11,9 @@
     </ul>
     <p>
       Check out the
-      <a href="https://github.com/RamyMamdouhEl-nabawy/finance-tracker">
+      <a
+        href="https://github.com/RamyMamdouhEl-nabawy/personal-finance-tracker"
+      >
         GitHub repository</a
       >
       for this project.
