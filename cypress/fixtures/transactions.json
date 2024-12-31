@@ -1,0 +1,18 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "type": "income",
+      "amount": 1000,
+      "description": "Salary",
+      "date": "2024-01-01"
+    },
+    {
+      "id": 2,
+      "type": "expense",
+      "amount": 300,
+      "description": "Rent",
+      "date": "2024-01-02"
+    }
+  ]
+}
