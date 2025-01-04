@@ -18,7 +18,7 @@
         <template #layers>
           <Pie
             data-test="pie-segment"
-            :dataKeys="['type', 'amount', 'date']"
+            :dataKeys="['type', 'amount']"
             :pie-style="{ innerRadius: 100, padAngle: 0.05 }"
           />
         </template>
@@ -68,6 +68,7 @@ export default defineComponent({
 
     return {
       data,
+      store,
     };
   },
 });

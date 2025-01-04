@@ -37,11 +37,13 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
+import { ITransaction } from "../interfaces/Transaction";
 
 export default defineComponent({
   setup() {
     const store = useStore();
     return {
+      store,
       totalIncome: store.getters.totalIncome,
       totalExpenses: store.getters.totalExpenses,
       netBalance: store.getters.netBalance,
@@ -49,18 +51,18 @@ export default defineComponent({
     };
   },
   computed: {
-    transactions() {
+    transactions(): ITransaction[] {
       return this.store.state.filteredTransactions.length > 0
         ? this.store.state.filteredTransactions
         : this.store.state.transactions;
     },
-    totalIncome() {
+    totalIncome(): any {
       return this.store.getters.totalIncome;
     },
-    totalExpenses() {
+    totalExpenses(): any {
       return this.store.getters.totalExpenses;
     },
-    balance() {
+    balance(): any {
       return this.store.getters.netBalance;
     },
   },

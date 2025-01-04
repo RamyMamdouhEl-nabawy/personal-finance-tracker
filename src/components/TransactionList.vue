@@ -111,20 +111,20 @@
 <script lang="ts">
 import { defineComponent, computed, ref } from "vue";
 import { useStore } from "vuex";
-import ITransaction from "../interfaces/Transaction";
+import { ITransaction } from "../interfaces/Transaction";
 import TransactionFilter from "./TransactionFilter/TransactionFilter.vue";
 
 export default defineComponent({
   components: { TransactionFilter },
   computed: {
-    totalIncome() {
-      return this.$store.getters.totalIncome;
+    totalIncome(): any {
+      return this.store.getters.totalIncome;
     },
-    totalExpenses() {
-      return this.$store.getters.totalExpenses;
+    totalExpenses(): any {
+      return this.store.getters.totalExpenses;
     },
-    balance() {
-      return this.$store.getters.netBalance;
+    balance(): any {
+      return this.store.getters.netBalance;
     },
   },
   setup() {
@@ -168,6 +168,7 @@ export default defineComponent({
       submitEditTransaction,
       isEditModalOpen,
       editTransaction,
+      store,
     };
   },
   mounted() {

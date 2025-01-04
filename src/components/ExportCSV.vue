@@ -21,7 +21,7 @@ export default defineComponent({
           "data:text/csv;charset=utf-8,,Type,Category,Amount,Currency,Date\n" +
           transactions
             .map(
-              (e) =>
+              (e: any) =>
                 `,${e.type},${e.category},${e.amount},${e.currency},${e.date}`
             )
             .join("\n") +
@@ -41,6 +41,7 @@ export default defineComponent({
         link.click();
         document.body.removeChild(link);
       },
+      store,
     };
   },
 });

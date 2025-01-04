@@ -8,7 +8,6 @@ export default defineConfig({
     video: false,
     screenshotOnRunFailure: false,
     experimentalModifyObstructiveThirdPartyCode: true,
-    nodeVersion: 'bundled'
   },
   component: {
     devServer: {

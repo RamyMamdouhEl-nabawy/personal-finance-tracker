@@ -1,4 +1,4 @@
-import ITransaction from "../../src/interfaces/Transaction"
+import { ITransaction } from "../../src/interfaces/Transaction"
 
 describe('FinancePieChart', () => {
   const mockTransactions: ITransaction[] = [

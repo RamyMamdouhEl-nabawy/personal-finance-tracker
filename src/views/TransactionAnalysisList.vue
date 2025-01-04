@@ -25,19 +25,27 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { useStore } from "vuex";
+import { defineComponent } from "vue";
 import ExportCSV from "../components/ExportCSV.vue";
 import TransactionList from "../components/TransactionList.vue";
 import FinancePieChart from "../components/FinancePieChart/FinancePieChart.vue";
-
-components: {
-  ExportCSV;
-}
-const store = useStore();
-const truncateTransactionsList = () => {
-  store.dispatch("truncateTransactionsList");
-};
+export default defineComponent({
+  components: {
+    ExportCSV,
+  },
+  setup() {
+    const store = useStore();
+    const truncateTransactionsList = () => {
+      store.dispatch("truncateTransactionsList");
+    };
+    return {
+      store,
+      truncateTransactionsList,
+    };
+  },
+});
 </script>
 
 <style lang="css" scoped>
