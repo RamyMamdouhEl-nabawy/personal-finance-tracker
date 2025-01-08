@@ -2,7 +2,12 @@
   <form @submit.prevent="submitTransaction">
     <section class="row">
       <div class="col-6 col-md-2">
-        <select data-test="transaction-type" class="form-control" v-model="type">
+        <select
+          name="transaction-type"
+          data-test="transaction-type"
+          class="form-control"
+          v-model="type"
+        >
           <option value="income">Income</option>
           <option value="expense">Expense</option>
         </select>
@@ -10,6 +15,7 @@
 
       <div class="col-6 col-md-2">
         <input
+          name="transaction-amount"
           class="form-control"
           data-test="transaction-amount"
           type="number"
@@ -20,7 +26,11 @@
       </div>
 
       <div class="col-6 col-md-2">
-        <select class="form-control" v-model="currency">
+        <select
+          name="transaction-currency"
+          class="form-control"
+          v-model="currency"
+        >
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="GBP">GBP</option>
@@ -31,7 +41,12 @@
       </div>
 
       <div class="col-6 col-md-2">
-        <select class="form-control" v-model="category" data-test="transaction-category">
+        <select
+          name="transaction-category"
+          class="form-control"
+          v-model="category"
+          data-test="transaction-category"
+        >
           <option value="Food">Food</option>
           <option value="Transportation">Transportation</option>
           <option value="Bills">Bills</option>
@@ -40,11 +55,21 @@
       </div>
 
       <div class="col-6 col-md-2">
-        <input class="form-control" type="date" v-model="date" required />
+        <input
+          class="form-control"
+          name="transaction-date"
+          type="date"
+          v-model="date"
+          required
+        />
       </div>
 
       <div class="col-12 align-items-center justify-content-center text-end">
-        <button class="btn btn-outline-success btn-lg mt-4" type="submit" data-test="submit-transaction">
+        <button
+          class="btn btn-outline-success btn-lg mt-4"
+          type="submit"
+          data-test="submit-transaction"
+        >
           Add Transaction
         </button>
       </div>

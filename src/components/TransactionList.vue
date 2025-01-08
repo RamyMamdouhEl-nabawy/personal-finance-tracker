@@ -49,7 +49,11 @@
         <form @submit.prevent="submitEditTransaction">
           <section class="row">
             <div class="col-6 col-md-2">
-              <select class="form-control" v-model="editTransaction.type">
+              <select
+                name="transaction-type"
+                class="form-control"
+                v-model="editTransaction.type"
+              >
                 <option value="income">Income</option>
                 <option value="expense">Expense</option>
               </select>
@@ -57,6 +61,7 @@
 
             <div class="col-6 col-md-2">
               <input
+                name="transaction-amount"
                 type="number"
                 v-model="editTransaction.amount"
                 placeholder="Amount"
@@ -66,7 +71,11 @@
             </div>
 
             <div class="col-6 col-md-2">
-              <select class="form-control" v-model="editTransaction.currency">
+              <select
+                name="transaction-currency"
+                class="form-control"
+                v-model="editTransaction.currency"
+              >
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
                 <option value="GBP">GBP</option>
@@ -77,7 +86,11 @@
             </div>
 
             <div class="col-6 col-md-2">
-              <select class="form-control" v-model="editTransaction.category">
+              <select
+                name="transaction-category"
+                class="form-control"
+                v-model="editTransaction.category"
+              >
                 <option value="Food">Food</option>
                 <option value="Transportation">Transportation</option>
                 <option value="Bills">Bills</option>
@@ -87,6 +100,7 @@
 
             <div class="col-6 col-md-2">
               <input
+                name="transaction-date"
                 class="form-control"
                 type="date"
                 v-model="editTransaction.date"

@@ -34,6 +34,8 @@ import FinancePieChart from "../components/FinancePieChart/FinancePieChart.vue";
 export default defineComponent({
   components: {
     ExportCSV,
+    TransactionList,
+    FinancePieChart,
   },
   setup() {
     const store = useStore();

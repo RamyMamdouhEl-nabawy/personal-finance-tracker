@@ -57,6 +57,14 @@ export default defineComponent({
   // },
   setup(props) {
     const store = useStore();
+    const axis = {
+      x: {
+        label: "X Axis",
+      },
+      y: {
+        label: "Y Axis",
+      },
+    };
     const transactionsList = computed(() => {
       return store.state.filteredTransactions.length > 0
         ? store.state.filteredTransactions
@@ -69,6 +77,7 @@ export default defineComponent({
     return {
       data,
       store,
+      axis,
     };
   },
 });

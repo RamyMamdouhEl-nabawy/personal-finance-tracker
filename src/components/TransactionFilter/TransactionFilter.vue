@@ -3,9 +3,14 @@
     <div class="card-body">
       <div class="row my-4">
         <div class="form-group col-12 col-md-4">
-          <label class="" for="category">Category:</label>
+          <label class="" for="transaction-category">Category:</label>
           <div class="col-12">
-            <select class="form-control" v-model="selectedCategory">
+            <select
+              name="transaction-category"
+              id="transaction-category"
+              class="form-control"
+              v-model="selectedCategory"
+            >
               <option value="">All</option>
               <option value="Food">Food</option>
               <option value="Transportation">Transportation</option>
@@ -18,8 +23,9 @@
         <div class="col-12 col-md-8 row">
           <!-- <label for="dateRange">Date Range:</label> -->
           <div class="form-group col">
-            <span class="col-sm-2 col-form-label">From:</span>
+            <label for="start-date" class="col-form-label py-0">From:</label>
             <input
+              id="start-date"
               data-test="date-filter-start"
               class="form-control"
               type="date"
@@ -27,8 +33,9 @@
             />
           </div>
           <div class="form-group col">
-            <span class="col-sm-2 col-form-label">To:</span>
+            <label for="end-date" class="col-form-label py-0">To:</label>
             <input
+              id="end-date"
               data-test="date-filter-end"
               class="form-control"
               type="date"
