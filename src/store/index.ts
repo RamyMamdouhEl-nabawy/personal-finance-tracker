@@ -1,8 +1,8 @@
 import axios from 'axios';
 // import { InjectionKey } from 'vue'
 import type IExchangeRate from '@/interfaces/ExchangeRate';
-import type { ITransaction, RootState } from '@/interfaces/Transaction';
-import { ActionContext, createStore, Store, useStore as baseUseStore } from 'vuex'
+import type { ITransaction } from '@/interfaces/Transaction';
+import { createStore, useStore as baseUseStore } from 'vuex'
 
 // export const key: InjectionKey<Store<RootState>> = Symbol()
 export const key: any = Symbol()
@@ -47,7 +47,7 @@ export default createStore({
     },
   },
   actions: {
-    async fetchExchangeRates({ commit }: ActionContext<State, RootState>, currency: string) {
+    async fetchExchangeRates({ commit }: any, currency: string) {
       try {
         const response: IExchangeRate = await axios.get(`https://api.fastforex.io/convert?from=${currency}&to=USD&amount=1&api_key=demo`);
         const rate = response.data.result;
