@@ -1,4 +1,4 @@
-import { ITransaction } from "../../src/interfaces/Transaction"
+import { ITransaction } from "../../src/interfaces/Transaction.js"
 
 describe('FinancePieChart', () => {
   const mockTransactions: ITransaction[] = [
@@ -8,6 +8,7 @@ describe('FinancePieChart', () => {
       amount: 1000,
       category: 'Food',
       currency: 'USD',
+      total: 1000,
       date: '2023-01-01',
     },
     {
@@ -16,6 +17,7 @@ describe('FinancePieChart', () => {
       amount: 300,
       category: 'Transportation',
       currency: 'EGP',
+      total: 300,
       date: '2023-01-02',
     }
   ]
