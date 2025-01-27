@@ -1,7 +1,7 @@
 import { createStore } from 'vuex'
 import { mount } from 'cypress/vue'
-import store from '../../src/store'
-import router from '../../src/router/index'
+import store from '../../src/store/index.js'
+import router from '../../src/router/index.js'
 import { createMemoryHistory, createRouter } from 'vue-router'
 
 // Helper function to create a new Vuex store

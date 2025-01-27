@@ -2,6 +2,8 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## Kindly note that this template is not intended for production use only for testing purposes, you can test transactions with exchange rates and currencies with limited quota.
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
@@ -53,6 +55,8 @@ npm run test:e2e
 ```sh
 npm run test:e2e:dev
 ```
+
+### Please make sure to have your functional test dependencies installed. Also, make sure to have your applicaation running in development mode. You can start the development server with `npm run dev`.
 
 This runs the end-to-end tests against the Vite development server.
 It is much faster than the production build.
