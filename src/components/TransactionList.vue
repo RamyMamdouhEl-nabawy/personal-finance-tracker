@@ -11,6 +11,7 @@
             <th scope="col">Category</th>
             <th scope="col">Amount</th>
             <th scope="col">Curreny</th>
+            <th scope="col">Total</th>
             <th colspan="2" scope="col">Date</th>
             <th scope="col"></th>
             <th scope="col"></th>
@@ -22,6 +23,11 @@
             <td scope="row">{{ transaction.category }}</td>
             <td>{{ (+transaction.amount).toFixed(2) }}</td>
             <td>{{ transaction.currency }}</td>
+            <td>
+              <span class="badge badge-pill badge-info">
+                {{ (+transaction.total).toFixed(2) }}$
+              </span>
+            </td>
             <td colspan="2">{{ transaction.date }}</td>
             <td>
               <button class="btn btn-light" @click="openEditModal(transaction)">
@@ -51,6 +57,7 @@
             <div class="col-6 col-md-2">
               <select
                 name="transaction-type"
+                data-test="transaction-type"
                 class="form-control"
                 v-model="editTransaction.type"
               >
@@ -63,6 +70,7 @@
               <input
                 name="transaction-amount"
                 type="number"
+                step=".001"
                 v-model="editTransaction.amount"
                 placeholder="Amount"
                 required
@@ -205,6 +213,10 @@ tr {
 }
 th {
   font-weight: bold;
+}
+.badge-info {
+  color: #fff;
+  background-color: #17a2b8;
 }
 .modal {
   display: block;

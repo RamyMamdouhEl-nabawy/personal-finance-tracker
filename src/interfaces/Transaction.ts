@@ -4,5 +4,6 @@ export interface ITransaction {
     amount: number;
     currency: string;
     category: string;
+    total: number;
     date: string;
 }

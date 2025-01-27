@@ -19,6 +19,7 @@
           class="form-control"
           data-test="transaction-amount"
           type="number"
+          step=".001"
           v-model="amount"
           placeholder="Amount"
           required
@@ -83,15 +84,9 @@ import { useStore } from "vuex";
 
 export default defineComponent({
   name: "TransactionForm",
-  data() {
-    return {
-      type: "income",
-      amount: 0,
-      currency: "USD",
-      category: "Food",
-      date: new Date().toISOString().split("T")[0],
-    };
-  },
+  // data() {
+  //   return {};
+  // },
   computed: {
     exchangeRate() {
       return this.currency === "USD"
@@ -101,7 +96,15 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    return { store };
+    return {
+      type: "income",
+      amount: 0,
+      currency: "USD",
+      category: "Food",
+      total: 0,
+      date: new Date().toISOString().split("T")[0],
+      store,
+    };
   },
   methods: {
     async submitTransaction() {
@@ -110,8 +113,9 @@ export default defineComponent({
       const transaction = {
         id: Date.now(),
         type: this.type,
-        amount: (this.amount * this.exchangeRate).toFixed(2),
+        amount: this.amount,
         currency: this.currency,
+        total: (this.amount * this.exchangeRate).toFixed(2),
         category: this.category,
         date: this.date,
       };
@@ -123,6 +127,7 @@ export default defineComponent({
       this.type = "income";
       this.amount = 0;
       this.currency = "USD";
+      this.total = 0;
       this.category = "Food";
       this.date = new Date().toISOString().split("T")[0];
     },

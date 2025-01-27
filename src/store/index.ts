@@ -72,10 +72,14 @@ export default createStore({
     editTransaction: async ({ commit, dispatch, state }, updatedTransaction: ITransaction) => {
       if (updatedTransaction.currency == state.baseCurrency) {
         updatedTransaction.amount = Number(updatedTransaction.amount);
+        updatedTransaction.total = Number(updatedTransaction.amount);
       } else {
         await dispatch('fetchExchangeRates', updatedTransaction.currency)
         const exchangeRate = state.exchangeRates["rate"];
-        if (exchangeRate) updatedTransaction.amount = Number(Number(updatedTransaction.amount) * Number(state.exchangeRates["rate"]));
+        if (exchangeRate) {
+          updatedTransaction.amount = (Number(updatedTransaction.amount))
+          updatedTransaction.total = Number(Number(updatedTransaction.amount) * Number(state.exchangeRates["rate"]))
+        };
       }
       commit('EDIT_TRANSACTION', updatedTransaction);
     },
@@ -104,12 +108,12 @@ export default createStore({
     totalIncome(state: any) {
       return state.transactions
         .filter((t: any) => t.type === 'income')
-        .reduce((total: Number, t: any) => Number(total) + Number(t.amount), 0);
+        .reduce((total: Number, t: any) => Number(total) + Number(t.total), 0);
     },
     totalExpenses(state: any) {
       return state.transactions
         .filter((t: any) => t.type === 'expense')
-        .reduce((total: Number, t: any) => Number(total) + Number(t.amount), 0);
+        .reduce((total: Number, t: any) => Number(total) + Number(t.total), 0);
     },
     netBalance(state: any, getters: any) {
       return getters.totalIncome - getters.totalExpenses;

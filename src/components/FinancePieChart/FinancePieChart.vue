@@ -18,7 +18,7 @@
         <template #layers>
           <Pie
             data-test="pie-segment"
-            :dataKeys="['type', 'amount']"
+            :dataKeys="['type', 'total']"
             :pie-style="{ innerRadius: 100, padAngle: 0.05 }"
           />
         </template>
@@ -31,6 +31,7 @@
               category: { label: 'Category' },
               currency: { hide: true },
               amount: { label: 'Amount' },
+              total: { label: 'Total' },
               date: { label: 'Transaction-Date' },
             }"
             hideLine
